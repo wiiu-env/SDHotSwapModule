@@ -40,6 +40,7 @@ void DeInitSDCheck() {
     }
 
     cleanUpAttachCallbacks();
+    cleanUpCleanUpHandlesCallbacks();
 
     OSMemoryBarrier();
 }
@@ -85,6 +86,7 @@ int UnmountSDCard() {
         return -1;
     }
     std::lock_guard<std::mutex> lk(*mutex);
+    callCleanUpHandlesCallbacks();
     FSCmdBlock fsCmd;
     FSInitCmdBlock(&fsCmd);
 
