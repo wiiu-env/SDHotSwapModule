@@ -48,5 +48,11 @@ bool SDUtilsRemoveAttachHandler(SDAttachHandlerFn fn) {
     return false;
 }
 
+SDUtilsVersion SDUtilsGetVersion() {
+    return SDUTILS_MODULE_VERSION;
+}
+
+WUMS_EXPORT_FUNCTION(SDUtilsGetVersion);
+
 WUMS_EXPORT_FUNCTION(SDUtilsAddAttachHandler);
 WUMS_EXPORT_FUNCTION(SDUtilsRemoveAttachHandler);
