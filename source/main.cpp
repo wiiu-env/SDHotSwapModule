@@ -76,7 +76,7 @@ WUMS_APPLICATION_STARTS() {
 
     OSMemoryBarrier();
 
-    DEBUG_FUNCTION_LINE("Wake up the thread");
+    DEBUG_FUNCTION_LINE_VERBOSE("Wake up the thread");
     // Now we can wake up the thread!
     cv->notify_all();
 }
