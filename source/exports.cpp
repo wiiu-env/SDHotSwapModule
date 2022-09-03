@@ -92,8 +92,12 @@ bool SDUtilsRemoveCleanUpHandlesHandler(SDCleanUpHandlesHandlerFn fn) {
     return false;
 }
 
-SDUtilsVersion SDUtilsGetVersion() {
-    return SDUTILS_MODULE_VERSION;
+SDUtilsStatus SDUtilsGetVersion(SDUtilsVersion *outVersion) {
+    if (outVersion == nullptr) {
+        return SDUTILS_RESULT_INVALID_ARGUMENT;
+    }
+    *outVersion = 1;
+    return SDUTILS_RESULT_SUCCESS;
 }
 
 WUMS_EXPORT_FUNCTION(SDUtilsGetVersion);
