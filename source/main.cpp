@@ -1,6 +1,7 @@
 #include "exports.h"
 #include "logger.h"
 #include "sdcard.h"
+#include "version.h"
 #include <condition_variable>
 #include <coreinit/cache.h>
 #include <coreinit/filesystem.h>
@@ -21,6 +22,9 @@ std::mutex *cv_m            = nullptr;
 std::thread *mountThread     = nullptr;
 bool sStopThread             = false;
 bool sIsSDInsertedAndMounted = false;
+
+#define MODULE_VERSION      "v0.1"
+#define MODULE_VERSION_FULL MODULE_VERSION MODULE_VERSION_EXTRA
 
 int mount_thread() {
     std::unique_lock<std::mutex> lk(*cv_m);
@@ -49,6 +53,7 @@ int mount_thread() {
 }
 
 WUMS_APPLICATION_STARTS() {
+    OSReport("Running SDHotSwapModule " MODULE_VERSION_FULL "\n");
     initLogging();
 
     sStopThread = false;
