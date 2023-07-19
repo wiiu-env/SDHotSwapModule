@@ -23,7 +23,7 @@ std::thread *mountThread     = nullptr;
 bool sStopThread             = false;
 bool sIsSDInsertedAndMounted = false;
 
-#define MODULE_VERSION      "v0.1"
+#define MODULE_VERSION      "v0.1.1"
 #define MODULE_VERSION_FULL MODULE_VERSION MODULE_VERSION_EXTRA
 
 int mount_thread() {
